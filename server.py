@@ -11,31 +11,13 @@ def home_page():
     return render_template('index.html')
 
 
-@app.route("/about.html")
-def about_page():
+@app.route("/<page>")
+def load_page(page):
     """About page."""
-    return render_template('about.html')
-
-
-@app.route("/services.html")
-def service_page():
-    """About page."""
-    return render_template('services.html')
+    return render_template(page)
 
 
 @app.route("/project.html")
 def project_page():
     """About page."""
     return render_template('services.html')
-
-
-@app.route("/contact.html")
-def contact_page():
-    """About page."""
-    return render_template('contact.html')
-
-
-@app.route("/components.html")
-def component_page():
-    """About page."""
-    return render_template('components.html')
