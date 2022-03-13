@@ -12,4 +12,4 @@ OR
 `python3 -m flask run`
 
 ## Website
-To see the preview of website, go to `127.0.0.0:5000` in your browser.
+To see the preview of website, go to `http://127.0.0.1:5000/` in your browser.
