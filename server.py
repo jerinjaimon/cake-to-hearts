@@ -1,5 +1,9 @@
-from flask import Flask, render_template, request
+"""Cake to Hearts Server Code.
 
+Powered by: Python Flask
+"""
+import csv
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
@@ -22,12 +26,19 @@ def project_page():
     return render_template('services.html')
 
 
-@app.route('/submit_form', methods=['POST', 'GET'])
+def write_data_to_csv(data, filename='database.csv'):
+    """Write data to file."""
+    with open(filename, encoding='UTF-8', mode='a', newline='') as file:
+        csv_writer = csv.writer(file, delimiter=',')
+        csv_writer.writerow(data.values())
+
+
+@ app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     """Send message."""
     if request.method == 'POST':
         data = request.form.to_dict()
-        print(data)
+        write_data_to_csv(data)
         response = "Your message was sucessfully sent"
     else:
         response = "Your message not sent"
